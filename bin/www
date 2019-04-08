@@ -1,0 +1,113 @@
+#!D:/Program Files/nodejs node
+
+/**
+ * Module dependencies.
+ */
+
+const app = require('../app');
+const debug = require('debug')('testwebregistration:server');
+const http = require('http');
+const config = require('../config');
+const logger = require('../libs/log')(module);
+
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+const port = normalizePort(process.env.PORT || config.get('port'));
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+
+const server = http.createServer(app);
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+server.on('stop', onStop);
+
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  const port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  const bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+			logger.error(bind + ' (Permission denied): An attempt was made to access a file in a way forbidden by its file access permissions.');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+			logger.error(bind + '  (Address already in use): An attempt to bind a server (net, http, or https) to a local address failed due to another server on the local system already occupying that address.');
+      process.exit(1);
+      break;
+    case 'ERR_INVALID_URL' :
+			logger.error(bind + ' An invalid URL');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  const addr = server.address();
+  const bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+	logger.info('Express server listening on port ' + bind);
+}
+
+function onStop() {
+	const addr = server.address();
+	const bind = typeof addr === 'string'
+		? 'pipe ' + addr
+		: 'port ' + addr.port;
+	server.close(function (req, res) {
+		logger.info('Server was stopped on port ' + bind);
+	});
+	app.res.render('stop', {layout: "exception"});
+
+}

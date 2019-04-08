@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{{title}}</title>
+	<link rel="stylesheet" href="/vendor/bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="css/app.css">
+
+	<script src="/vendor/bower_components/jquery/dist/jquery.js"></script>
+	<script src="/vendor/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+<div id="main">
+		{{> menu}}
+	<div id="first">
+	<section>
+		{{{body}}}
+	</section>
+	<footer class="modal-footer text" role="doc-footnote" id="bottomWebPage">
+		{{> footer}}
+	</footer>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "port" : 3000,
+  "mongoose" : {
+    "uri" : "mongodb://localhost/testWebShopRegistration",
+    "options" : {
+      "server": {
+        "useNewUrlParser": "true"
+      }
+    }
+  }
+}

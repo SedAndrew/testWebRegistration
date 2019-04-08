@@ -1,0 +1,114 @@
+body {
+	background-color: #c0d1d0;
+}
+body a:first-letter,
+		h1:first-letter,
+		h3:first-letter,
+		p:first-letter {
+	text-transform: uppercase;
+}
+.text {
+	
+	/*margin: 10px 0 0 0;*/
+	background-color: #486e6b; 
+	color: #cce5e3;
+}
+p {
+	margin: 5px;
+}
+#navigator {
+	display: flex;
+	background-color: #486e6b; 
+}
+#navigator a {
+	list-style-type: none;
+	color: #cce5e4;
+  padding: 0 10px;
+  font-size: 17px;
+  flex-basis: auto;
+	flex-grow: 1;
+	text-align: center;
+  text-decoration: none;
+}
+h1,h3 {
+	color: #486e6b;
+	text-align: center;
+}
+#first {
+	padding: 0 10px;
+}
+#download_prog {
+	padding: 5px 0;
+	margin: 10px;
+}
+
+#topWebPage h1 {
+	text-align: center;
+	color: #cce5e4;
+}
+
+#bottomWebPage {
+	text-align: center;
+	margin: 10px 0;
+}
+#line_block {
+	display: inline-block;
+}
+#first img {
+	display: inline-block;
+	width: 30.2%;
+}
+#first #line_block {
+	width: 650px;
+	height: 167px;
+	float: right;
+	text-align: left;
+	font-size: 20px;
+}
+
+#pageRegistration {
+	height: 380px;
+	margin: 0 10px;
+}
+#formRegistration {
+	height: 380px;
+	margin: 0 10px;
+}
+#formRegistration p {
+	padding: 10px 10px 0 10px;
+	font-size: 20px;
+}
+#formRegistration a {
+	color: #d6ae3e;
+	text-decoration: none;
+	font-size: 20px;
+	width: 100px;
+	border-radius: 21px;
+	box-shadow: 0 0 5px 1.5px #e3b944;
+	background-color: #CCE5C7;
+	padding: 10px 20px 10px 20px;
+	margin-left: 30px;
+	text-align: center;
+}
+#formRegistration input {
+	width: 402px;
+	font-size: 18px;
+}
+#formRegistration a:hover {
+	color: #3eb5d6;
+	box-shadow: 0 0 5px 1.5px #3eb5d6;
+}
+#main {
+	width: 1000px;
+	margin: 0 auto;
+	background-color: #d1e5e4;
+	padding-bottom: 0.1px;
+}
+
+a {
+	color: #d6ae3e;
+	text-decoration: none;
+}
+#button {
+	margin-top: 20px;
+}
